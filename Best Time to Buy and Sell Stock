@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int curr = 0, diff = 0, maxDiff = 0, next = 1;
+        while(next<prices.size()){
+            if(prices[curr]>=prices[next]){
+                curr = next;
+                next++;
+            }
+            else{
+                diff = prices[next]-prices[curr];
+                if(maxDiff<diff)
+                    maxDiff = diff;
+                next++;
+            }
+        }
+        return maxDiff;
+    }
+};
